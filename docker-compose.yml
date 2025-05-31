@@ -19,11 +19,11 @@ services:
 
     # --- GPU Access ---
     # Modern method (Recommended for newer Docker/NVIDIA setups)
-    devices:
-      - nvidia.com/gpu=all
-    device_cgroup_rules:
-      - "c 195:* rmw" # Needed for some NVIDIA container toolkit versions
-      - "c 236:* rmw" # Needed for some NVIDIA container toolkit versions
+    # devices:
+    #  - nvidia.com/gpu=all
+    # device_cgroup_rules:
+    #  - "c 195:* rmw" # Needed for some NVIDIA container toolkit versions
+    #  - "c 236:* rmw" # Needed for some NVIDIA container toolkit versions
 
     # Legacy method (Alternative for older Docker/NVIDIA setups)
     # If the 'devices' block above doesn't work, comment it out and uncomment
@@ -42,5 +42,5 @@ services:
       # Enable faster Hugging Face downloads inside the container
       - HF_HUB_ENABLE_HF_TRANSFER=1
       # Make NVIDIA GPUs visible and specify capabilities for PyTorch
-      - NVIDIA_VISIBLE_DEVICES=all
-      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+     # - NVIDIA_VISIBLE_DEVICES=all
+     # - NVIDIA_DRIVER_CAPABILITIES=compute,utility
